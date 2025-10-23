@@ -1,9 +1,9 @@
 public class Televisor {
-    private String canal;
+    private int canal;
     private int volume;
     private boolean ligado;
 
-    public Televisor(String canal, int volume, boolean ligado){
+    public Televisor(int canal, int volume, boolean ligado){
         this.canal = canal;
         this.volume = volume;
         this.ligado = false;
@@ -45,8 +45,22 @@ public class Televisor {
         }
     }
 
+    public void trocarCanal(int novoCanal) {
+        if (ligado) {
+            if (novoCanal > 0 && novoCanal <= 999) {
+                canal = novoCanal;
+                System.out.println("Canal trocado para: " + canal);
+            } else {
+                System.out.println("Canal inválido!");
+            }
+        } else {
+            System.out.println("TV desligada!");
+        }
+    }
+
     public String toString(){
         return"A televião esta: "+ligado+
-        " || No canal: "+canal+;
+        " || No canal: "+canal+
+        " || Volume em: "+volume+"%";
     }
 }
